@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+
+    id("com.apollographql.apollo").version("2.5.13")
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "com.apollographql.apollo:apollo-runtime:2.5.13"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+apollo {
+    packageName.set("com.example")
+
+    generateKotlinModels.set(false)
+}
+
+test {
+    useJUnitPlatform()
+}
